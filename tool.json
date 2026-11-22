@@ -1,16 +1,22 @@
 {
-  "id": "coolcode-tool-template",
-  "title": "CoolCode Tool Starter",
-  "description": "A browser-only example that trims lines and removes exact duplicates.",
-  "category": "security",
-  "tags": ["text", "lines", "duplicates"],
-  "icon": "scan-search",
-  "url": "/coolcode-tool-template/",
-  "source": "https://github.com/jsdyer/coolcode-tool-template",
+  "id": "maplehosting",
+  "title": "Maple Hosting Index",
+  "description": "A dated sample of .ca domains, observed through DNS. Explore the networks and estimated countries behind their public addresses.",
+  "category": "liminal-tools",
+  "tags": [
+    "maplehosting",
+    "liminal-tools",
+    "public data",
+    "history"
+  ],
+  "icon": "history",
+  "url": "/maplehosting/",
+  "source": "https://github.com/jsdyer/maplehosting",
   "hosting": "project",
   "access": "browser",
   "data_info": {
-    "mode": "local",
-    "detail": "The browser reads the text you paste and compares its lines."
+    "mode": "snapshot",
+    "detail": "Monthly DNS, ASN and IP-country observations for 100 .ca domains from a dated Tranco list.",
+    "cadence": "Monthly"
   }
 }

@@ -1,7 +1,2 @@
-// Keep transformations separate from the DOM so they can be tested directly.
-export function cleanLines(text) {
-  if (typeof text !== 'string') throw new TypeError('Expected text');
-  const lines = text.split(/\r\n|\r|\n/).map(line => line.trim()).filter(Boolean);
-  const unique = [...new Set(lines)];
-  return { text: unique.join('\n'), count: unique.length, removed: lines.length - unique.length };
-}
+import {counts} from './shared.mjs';export const present=rows=>rows;
+export function analyse(rows){return{metrics:[{label:'Domains in sample',value:rows.length,note:'First 100 ranked .ca apex domains'},{label:'IPv6 answer present',value:rows.filter(r=>r.ipv6==='Yes').length,note:'An AAAA answer, not reachability'},{label:'Origin networks observed',value:new Set(rows.flatMap(r=>r.networks)).size,note:'RIPE RIS origin ASNs'},{label:'Geography incomplete',value:rows.filter(r=>r.country_group==='Unknown or incomplete').length,note:'Unknown is never assumed Canadian'}],panels:[{title:'Non-overlapping country groups',items:counts(rows,'country_group'),note:'Each domain counted once. IP country is not data residency.'},{title:'Observed origin networks',items:counts(rows,'networks'),note:'Distinct domains per network. One domain may appear under several networks; shares overlap.'}]};}
